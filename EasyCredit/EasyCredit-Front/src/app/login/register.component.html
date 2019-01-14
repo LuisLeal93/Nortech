@@ -1,0 +1,53 @@
+<div class="main-container" style="padding-left: 40px">
+
+    <h4>
+        EasyCredit <small>Registrarse</small></h4>
+    <hr>
+    <form (ngSubmit)="Registrarse(forma)" #forma="ngForm" ngNativeValidate>
+
+        <div>
+
+            <div class="form-group row">
+                <label class="col-2 col-form-label"> * Username</label>
+                <div class="col-2">
+
+                    <input class="form-control" type="text" (keypress)="noWhiteSpace()" placeholder="Username" name="username" [(ngModel)]=username required minlength="1" #_username="ngModel">
+
+                    <div *ngIf="_username?.errors?.required && !forma.pristine">
+                        Este campo es requerido!
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-2 col-form-label">* Edad</label>
+                <div class="col-2">
+
+                    <input class="form-control" type="number" placeholder="Edad" name="edad" min="20" [(ngModel)]=edad required #_edad="ngModel">
+
+                    <div *ngIf="_edad?.errors?.required && !forma.pristine">
+                        Este campo es requerido!
+                    </div>
+                    <div *ngIf=" edad < 20 && edad != null ">
+                        Debes tener por lo menos 20 años
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="form-group row">
+            <label class="col-2 col-form-label">&nbsp;</label>
+            <div class="input-group col-md-1">
+                <button [disabled]="!forma.valid" type="submit" class="btn btn-outline-primary" style="padding-right: 10px"> Registrarse </button>
+            </div>
+            <div class="input-group col-md-1">
+                <button type="button" routerLink="/login" class="btn btn-outline-danger "> Regresar </button>
+            </div>
+        </div>
+
+    </form>
+
+</div>

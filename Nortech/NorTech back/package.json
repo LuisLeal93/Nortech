@@ -1,0 +1,19 @@
+{
+    "name": "nortech",
+    "version": "1.0.0",
+    "description": "Test",
+    "main": "index.js",
+    "scripts": {
+        "start": "nodemon app.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Luis Angel Leal Solorzano",
+    "license": "ISC",
+    "dependencies": {
+        "bcrypt": "^3.0.3",
+        "body-parser": "^1.18.3",
+        "express": "^4.16.4",
+        "jsonwebtoken": "^8.4.0",
+        "mysql": "^2.16.0"
+    }
+}

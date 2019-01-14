@@ -1,0 +1,45 @@
+<div class="main-container" style="padding-left: 40px">
+
+    <h4>
+        EasyCredit <small>LOG IN</small></h4>
+    <hr>
+    <form (ngSubmit)="Ingresar(forma)" #forma="ngForm" novalidate="">
+
+        <div>
+
+            <!--ngmodel = leer parametros, [ngmodel] = lee y Recibe parametros, (ngmodel) = lee y emite parametros, [(ngModel)] = lee, recibe y emite parametros-->
+            <div class="form-group row">
+                <label class="col-2 col-form-label"> * Username</label>
+                <div class="col-2">
+
+                    <input class="form-control" type="text" placeholder="Username" name="username" [(ngModel)]=username required minlength="1" #_username="ngModel">
+
+                    <div *ngIf="_username?.errors?.required && !forma.pristine">
+                        Este campo es requerido!
+                    </div>
+                    <div *ngIf="_username?.errors?.minlength">
+                        Por lo menos {{ _username?.errors.minlength.requiredLength }} caracteres
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="form-group row">
+            <label class="col-2 col-form-label">&nbsp;</label>
+            <div class="input-group col-md-1">
+                <button [disabled]="!forma.valid" type="submit" class="btn btn-outline-primary"> Ingresar </button>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-2">
+                <p> No tienes una cuenta? </p>
+                <button type="button" routerLink="/register" class="btn btn-outline-primary"> Registrarse </button>
+            </div>
+        </div>
+
+    </form>
+
+</div>

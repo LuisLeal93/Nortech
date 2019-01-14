@@ -1,0 +1,67 @@
+<div class="row" style="padding-top: 8%;">
+
+    <div class="col-sm-6" style="padding-right: 2%;">
+        <div class="card">
+            <h5 class="card-header" style="text-align: center">Historial Crediticio</h5>
+            <div class="card-body" style="height: 500px">
+                <div class="table-wrapper" style="height: 100%">
+                    <table class="table-responsive card-list-table">
+                        <thead>
+                            <tr>
+                                <th>Estado</th>
+                                <th>Plazo</th>
+                                <th>Monto</th>
+                                <th>Interes</th>
+                                <th>Monto</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of arrAcpRec;" [ngClass]="(item.estado === 'aceptado') ? 'table-success' : 'table-danger'">
+                                <td>{{item.estado }}</td>
+                                <td>{{item.plazo }}</td>
+                                <td>{{item.monto}}</td>
+                                <td>{{item.pInteres}}</td>
+                                <td>{{item.interes}}</td>
+                                <td>{{item.Total}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-sm-6 " style="padding-right: 2%; ">
+        <div class="card ">
+            <h5 class="card-header " style="text-align: center ">Solicitudes Actuales</h5>
+            <div class="card-body " style="height: 500px ">
+                <div class="table-wrapper " style="height: 100% ">
+                    <table class="table-responsive card-list-table ">
+                        <thead>
+                            <tr>
+                                <th>Plazo</th>
+                                <th>Monto</th>
+                                <th>Interes</th>
+                                <th>Monto</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of arrPendiente; ">
+                                <td>{{item.plazo}}</td>
+                                <td>{{item.monto}}</td>
+                                <td>{{item.pInteres}}</td>
+                                <td>{{item.interes}}</td>
+                                <td>{{item.Total}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <button type="button" class="btn btn-outline-primary btn-lg" (click)="tieneTarjeta()" routerLink="/solicitar-credito">Pedir Credito</button>
+        </div>
+    </div>
+
+</div>

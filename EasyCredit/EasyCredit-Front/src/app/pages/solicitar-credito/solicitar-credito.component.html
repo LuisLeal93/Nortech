@@ -1,0 +1,61 @@
+<form (ngSubmit)="(crearPeticion(forma))" #forma="ngForm" ngNativeValidate>
+
+    <div class="form-group row" style="max-width: 500px;">
+
+        <div class="col-sm-12" style="padding-top: 8%;">
+            <div class="card">
+                <h4 class="card-header" style="text-align: center">Solicita tu EasyCredit</h4>
+                <div class="card-body">
+
+                    <h5 class="card-title" style="padding-top: 4%;"></h5>
+
+                    <div class="form-group row">
+                        <label class="col-4 col-form-label"> *Monto a solicitar</label>
+                        <div class="col-4">
+
+                            <input class="form-control" type="number" name="monto" placeholder="0" [(ngModel)]=montoCredito (keyup)="calculaMonto(plazoCredito)" required min="1000" #_monto="ngModel">
+                            <div *ngIf="_monto?.errors?.min && !forma.pristine">
+                                monto minimo: 1000
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-4 col-form-label"> *Plazo a elegir</label>
+                        <div class="col-4">
+
+                            <form id="frmOptions">
+                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                    <label class="btn btn-success active" (click)="calculaMonto(3)">
+                                      <input type="radio" name="options" value="3"  checked> 3
+                                    </label>
+                                    <label class="btn btn-success" (click)="calculaMonto(6)">
+                                      <input type="radio" name="options"  value="6"> 6
+                                    </label>
+                                    <label class="btn btn-success" (click)="calculaMonto(9)">
+                                      <input type="radio" name="options" value="9"> 9
+                                    </label>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+
+                    <ul class="list-group">
+                        <li class="list-group-item">Tasa Interes: {{pInteres}} </li>
+                        <li class="list-group-item">Monto Interes: {{montoInteres}} </li>
+                        <li class="list-group-item">Total: {{totalPagar}} </li>
+                    </ul>
+
+
+                    <label class="col-2 col-form-label">&nbsp;</label>
+                    <div class="input-group col-md-1">
+                        <button type="submit" class="btn btn-outline-primary"> Solicitar </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</form>

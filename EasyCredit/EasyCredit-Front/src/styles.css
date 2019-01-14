@@ -1,0 +1,130 @@
+body {
+    padding-bottom: 50px;
+}
+
+.main-container {
+    margin-top: 20px;
+}
+
+
+/*Animaciones*/
+
+.animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+.fast {
+    -webkit-animation-duration: 0.4s;
+    animation-duration: 0.4s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fadeIn {
+    animation-name: fadeIn;
+}
+
+.wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background: #f8f8f8;
+}
+
+.buttons {
+    margin: 10px 0 50px;
+}
+
+.table-wrapper {
+    max-width: 480px;
+    align-content: center;
+    width: 80%;
+    margin: 0 auto 0;
+    max-height: 500px;
+    overflow-y: scroll;
+    position: relative;
+    transition: all .2s ease-out;
+    @media(min-width: $screen-sm-min) {
+        background: white;
+        box-shadow: $shadow;
+    }
+}
+
+.card-list-table {
+    table-layout: fixed;
+    background: transparent;
+    margin-bottom: 0;
+    width: 100%;
+    thead {
+        display: none;
+    }
+    tbody tr {
+        box-shadow: $shadow;
+        background: #fff;
+        border-bottom: 1px solid $gray-border;
+        cursor: pointer;
+        display: block;
+        padding: 15px 10px;
+        margin: 0 0 10px 0;
+    }
+    tbody td {
+        border: 0;
+        display: block;
+        padding: 10px 10px 20px 40%;
+        position: relative;
+        &:first-of-type::after {
+            visibility: hidden;
+        }
+        &:after {
+            content: '';
+            width: calc(100% - 30px);
+            display: block;
+            margin: 0 auto;
+            height: 1px;
+            background: $gray-border;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: -6px
+        }
+        &:before {
+            color: $gray-light;
+            text-transform: uppercase;
+            font-size: .85em;
+            content: attr(data-title);
+            display: table-cell;
+            font-weight: 500;
+            height: 100%;
+            left: 15px;
+            margin: auto;
+            position: absolute;
+            vertical-align: middle;
+            white-space: nowrap;
+            width: 40%;
+        }
+    }
+    thead th {
+        text-transform: uppercase;
+        font-size: .85em;
+        color: $gray-light;
+        letter-spacing: .10pt;
+    }
+}
